@@ -189,7 +189,7 @@
 
         vm.getConstraints = function () {
 
-            var Api = $resource("http://http://52.10.6.76:3000/constraints");
+            var Api = $resource("http://52.10.6.76:3000/constraints");
             Api.query({ method: 'GET', operation: 'view' }).$promise.then(function(data) {
                 vm.loader = false;
                 vm.constraints = data;
@@ -323,7 +323,7 @@
         });
         vm.getData = function () {
             ////console.log('calling');
-            var Api = $resource("http://http://52.10.6.76:3000/data");
+            var Api = $resource("http://52.10.6.76:3000/data");
             Api.query({ method: 'GET', operation: 'view' }).$promise.then(function(data) {
                 vm.loader = false;
                 vm.data = data;
@@ -399,7 +399,7 @@
                 $scope.showActionToast();
                 return;
             }
-            var Api = $resource('http://http://52.10.6.76:3000/data/save');
+            var Api = $resource('http://52.10.6.76:3000/data/save');
 
             ////console.log(vm.data);
             var obj = {};
