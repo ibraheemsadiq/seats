@@ -1,0 +1,1013 @@
+<div layout="column" ng-cloak layout-align="center center" ng-controller="MainController as vm" class="md-inline-form">
+
+
+  <md-content layout-padding layout-align="center center">
+    <div class="flexbox-parent">
+      <form name="userForm" ng-submit="userForm.$valid && vm.showToastr()" class="row" flex="100" layout-margin="50"  layout-align="center center">
+
+        <h2>Source</h2>
+        <h3>Long</h3>
+        <md-input-container flex="50" class="md-block">
+          <label>long</label>
+          <input name="long" ng-model="vm.data[0].long[0]" md-maxlength="{{vm.constraints[1].max_chars}}" minlength="{{vm.constraints[1].min_chars}}">
+          <div ng-messages="userForm.long.$error" role="alert" multiple>
+            <div ng-message="md-maxlength" class="my-message">
+              String is too long
+            </div>
+            <div ng-message="minlength" class="my-message">
+              String is too short
+            </div>
+          </div>
+        </md-input-container>
+
+        <h3>small</h3>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>infratest</label>
+            <input name="source_small_1" ng-model="vm.data[0].small[0]" md-maxlength="{{vm.constraints[2].max_chars}}" minlength="{{vm.constraints[2].min_chars}}">
+            <div ng-messages="userForm.source_small_1.$error" role="alert" multiple>
+              <div ng-message="md-maxlength" class="my-message">
+                String is too long
+              </div>
+              <div ng-message="minlength" class="my-message">
+                String is too short
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>source_small_2</label>
+            <input name="source_small_2" ng-model="vm.data[0].small[1]" md-maxlength="{{vm.constraints[3].max_chars}}" minlength="{{vm.constraints[3].min_chars}}">
+            <div ng-messages="userForm.source_small_1.$error" role="alert" multiple>
+              <div ng-message="md-maxlength" class="my-message">
+                String is too long
+              </div>
+              <div ng-message="minlength" class="my-message">
+                String is too short
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <h2>turnOut</h2>
+        <h3>display</h3>
+
+          <md-input-container class="md-block" flex-gt-sm flex="10">
+            <md-switch ng-model="vm.data[1].display" aria-label="Switch 1">
+            </md-switch>
+          </md-input-container>
+
+        <h3>value</h3>
+
+          <md-input-container class="md-block" flex="50" flex-gt-sm>
+            <label>infratest</label>
+            <input type="number" name="turnout" min="{{vm.constraints[4].value_min}}" max="{{vm.constraints[4].value_max}}" ng-decimal decimal="{{vm.constraints[4].decimal_count}}" ng-model="vm.data[1].value" >
+            <div ng-messages="userForm.turnout.$error"  role="alert" multiple>
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        <h2>Percentages</h2>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage1" ng-blur="vm.validatepercentage('percentage1',0)"  ng-model="vm.data[3].percentages.current[0].entity" >
+            <div ng-messages="userForm.percentage1.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue1" ng-model="vm.data[3].percentages.current[0].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue1.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage2" ng-blur="vm.validatepercentage('percentage2',1)"  ng-model="vm.data[3].percentages.current[1].entity" >
+            <div ng-messages="userForm.percentage2.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue2" ng-model="vm.data[3].percentages.current[1].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue2.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage3" ng-blur="vm.validatepercentage('percentage3',2)"  ng-model="vm.data[3].percentages.current[2].entity" >
+            <div ng-messages="userForm.percentage3.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue3" ng-model="vm.data[3].percentages.current[2].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue3.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage4" ng-blur="vm.validatepercentage('percentage4',3)"  ng-model="vm.data[3].percentages.current[3].entity" >
+            <div ng-messages="userForm.percentage4.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue4" ng-model="vm.data[3].percentages.current[3].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue4.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage5" ng-blur="vm.validatepercentage('percentage5',4)"  ng-model="vm.data[3].percentages.current[4].entity" >
+            <div ng-messages="userForm.percentage5.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue5" ng-model="vm.data[3].percentages.current[4].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue5.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage6" ng-blur="vm.validatepercentage('percentage6',5)"  ng-model="vm.data[3].percentages.current[5].entity" >
+            <div ng-messages="userForm.percentage6.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue6" ng-model="vm.data[3].percentages.current[5].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue6.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage7" ng-blur="vm.validatepercentage('percentage7',6)"  ng-model="vm.data[3].percentages.current[6].entity" >
+            <div ng-messages="userForm.percentage7.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue7" ng-model="vm.data[3].percentages.current[6].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue7.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage8" ng-blur="vm.validatepercentage('percentage8',7)"  ng-model="vm.data[3].percentages.current[7].entity" >
+            <div ng-messages="userForm.percentage8.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue8" ng-model="vm.data[3].percentages.current[7].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue8.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage9" ng-blur="vm.validatepercentage('percentage9',8)"  ng-model="vm.data[3].percentages.current[8].entity" >
+            <div ng-messages="userForm.percentage9.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue9" ng-model="vm.data[3].percentages.current[8].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue9.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage10" ng-blur="vm.validatepercentage('percentage10',9)"  ng-model="vm.data[3].percentages.current[9].entity" >
+            <div ng-messages="userForm.percentage10.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue10" ng-model="vm.data[3].percentages.current[9].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue10.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage11" ng-blur="vm.validatepercentage('percentage11',10)"  ng-model="vm.data[3].percentages.current[10].entity" >
+            <div ng-messages="userForm.percentage11.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue11" ng-model="vm.data[3].percentages.current[10].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue11.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="percentage12" ng-blur="vm.validatepercentage('percentage12',11)"  ng-model="vm.data[3].percentages.current[11].entity" >
+            <div ng-messages="userForm.percentage12.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[5].decimal_count}}" name="percentageValue12" ng-model="vm.data[3].percentages.current[11].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.percentageValue12.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+
+
+        <div layout-gt-sm="row" layout-align="center center" flex="100"><strong id="sumPValue" ng-class="{'activeRed':(vm.data[3].percentages.current[0].value+vm.data[3].percentages.current[1].value+vm.data[3].percentages.current[2].value+vm.data[3].percentages.current[3].value+vm.data[3].percentages.current[4].value+vm.data[3].percentages.current[5].value+vm.data[3].percentages.current[6].value+vm.data[3].percentages.current[7].value+vm.data[3].percentages.current[8].value+vm.data[3].percentages.current[9].value+vm.data[3].percentages.current[10].value+vm.data[3].percentages.current[11].value) < vm.constraints[8].sum_of_all_values_min || (vm.data[3].percentages.current[0].value+vm.data[3].percentages.current[1].value+vm.data[3].percentages.current[2].value+vm.data[3].percentages.current[3].value+vm.data[3].percentages.current[4].value+vm.data[3].percentages.current[5].value+vm.data[3].percentages.current[6].value+vm.data[3].percentages.current[7].value+vm.data[3].percentages.current[8].value+vm.data[3].percentages.current[9].value+vm.data[3].percentages.current[10].value+vm.data[3].percentages.current[11].value) > vm.constraints[8].sum_of_all_values_max }">Sum of All values = {{vm.data[3].percentages.current[0].value+vm.data[3].percentages.current[1].value+vm.data[3].percentages.current[2].value+vm.data[3].percentages.current[3].value+vm.data[3].percentages.current[4].value+vm.data[3].percentages.current[5].value+vm.data[3].percentages.current[6].value+vm.data[3].percentages.current[7].value+vm.data[3].percentages.current[8].value+vm.data[3].percentages.current[9].value+vm.data[3].percentages.current[10].value+vm.data[3].percentages.current[11].value }}</strong> </div>
+
+
+        <h2>Seats</h2>
+        <div layout-gt-sm="row" flex="100">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input  name="seat1" ng-model="vm.data[3].seats.values[0].entity" ng-blur="vm.validateSeat('seat1',0)">
+            <div ng-messages="userForm.seat1.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="seat2" ng-model="vm.data[3].seats.values[1].entity"   ng-blur="vm.validateSeat('seat2',1)">
+            <div ng-messages="userForm.seat2.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input  name="seat3" ng-model="vm.data[3].seats.values[2].entity"   ng-blur="vm.validateSeat('seat3',2)">
+            <div ng-messages="userForm.seat3.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="seat4" ng-model="vm.data[3].seats.values[3].entity" ng-blur="vm.validateSeat('seat4',3)"  >
+            <div ng-messages="userForm.seat4.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input  name="seat5" ng-model="vm.data[3].seats.values[4].entity"   ng-blur="vm.validateSeat('seat5',4)" >
+            <div ng-messages="userForm.seat5.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="seat6" ng-model="vm.data[3].seats.values[5].entity"    ng-blur="vm.validateSeat('seat6',5)">
+            <div ng-messages="userForm.seat6.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input  name="seat7" ng-model="vm.data[3].seats.values[6].entity" ng-blur="vm.validateSeat('seat7',6)">
+            <div ng-messages="userForm.seat7.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input  name="seat8" ng-model="vm.data[3].seats.values[7].entity"   ng-blur="vm.validateSeat('seat8',7)" >
+            <div ng-messages="userForm.seat8.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="seat9" ng-model="vm.data[3].seats.values[8].entity"  ng-blur="vm.validateSeat('seat9',8)" >
+            <div ng-messages="userForm.seat9.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="seat10" ng-model="vm.data[3].seats.values[9].entity" ng-blur="vm.validateSeat('seat10',9)">
+            <div ng-messages="userForm.seat10.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input  name="seat11" ng-model="vm.data[3].seats.values[10].entity" ng-blur="vm.validateSeat('seat11',10)" >
+            <div ng-messages="userForm.seat11.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="seat12" ng-model="vm.data[3].seats.values[11].entity" ng-blur="vm.validateSeat('seat12',11)">
+            <div ng-messages="userForm.seat12.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="100">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue1" name="seatValue1" ng-model="vm.data[3].seats.values[0].value"  ng-keyup="vm.validateSeatValue(0)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue1.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue2" name="seatValue2" ng-model="vm.data[3].seats.values[1].value"  ng-keyup="vm.validateSeatValue(1)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue2.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue3" name="seatValue3" ng-model="vm.data[3].seats.values[2].value"  ng-keyup="vm.validateSeatValue(2)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue3.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue4" name="seatValue4" ng-model="vm.data[3].seats.values[3].value"  ng-keyup="vm.validateSeatValue(3)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue4.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue5" name="seatValue5" ng-model="vm.data[3].seats.values[4].value"  ng-keyup="vm.validateSeatValue(4)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue5.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue6" name="seatValue6" ng-model="vm.data[3].seats.values[5].value"  ng-keyup="vm.validateSeatValue(5)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue6.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue7" name="seatValue7" ng-model="vm.data[3].seats.values[6].value"  ng-keyup="vm.validateSeatValue(6)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue7.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue8" name="seatValue8" ng-model="vm.data[3].seats.values[7].value"  ng-keyup="vm.validateSeatValue(7)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue8.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue9" name="seatValue9" ng-model="vm.data[3].seats.values[8].value"  ng-keyup="vm.validateSeatValue(8)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue9.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue10" name="seatValue10" ng-model="vm.data[3].seats.values[9].value"  ng-keyup="vm.validateSeatValue(9)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue10.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue11" name="seatValue11" ng-model="vm.data[3].seats.values[10].value"  ng-keyup="vm.validateSeatValue(10)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue11.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[6].decimal_count}}" pattern='^[0-9]+$' id="seatValue12" name="seatValue12" ng-model="vm.data[3].seats.values[11].value"  ng-keyup="vm.validateSeatValue(11)" max="{{vm.constraints[6].value_max}}" min="{{vm.constraints[6].value_min}}">
+            <div ng-messages="userForm.seatValue12.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is too large
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is too small
+              </div>
+              <div ng-message="pattern" class="my-message">
+                *number
+              </div>
+            </div>
+          </md-input-container>
+
+
+        </div>
+        <div layout-gt-sm="row" layout-align="center center" flex="100"><strong ng-class="{'activeRed':vm.sumValues < vm.constraints[6].sum_of_all_values_min || vm.sumValues > vm.constraints[6].sum_of_all_values_max }">Sum of All values = {{vm.sumValues }}</strong> </div>
+        <h2>Coalitions</h2>
+        <div id="coalitions" layout="row" layout-align="center center">
+        <table id="calculations" style="height: 480px;">
+          <tr>
+            <td>= {{vm.calculation[0]}}</td>
+            <td class="activeRed">{{vm.msg[0]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[1]}}</td>
+            <td class="activeRed">{{vm.msg[1]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[2]}}</td>
+            <td class="activeRed">{{vm.msg[2]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[3]}}</td>
+            <td class="activeRed">{{vm.msg[3]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[4]}}</td>
+            <td class="activeRed">{{vm.msg[4]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[5]}}</td>
+            <td class="activeRed">{{vm.msg[5]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[6]}}</td>
+            <td class="activeRed">{{vm.msg[6]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[7]}}</td>
+            <td class="activeRed">{{vm.msg[7]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[8]}}</td>
+            <td class="activeRed">{{vm.msg[8]}}</td>
+          </tr>
+          <tr>
+            <td>= {{vm.calculation[9]}}</td>
+            <td class="activeRed">{{vm.msg[9]}}</td>
+          </tr>
+
+        </table>
+
+        </div>
+
+        <div layout-gt-sm="row" layout-align="center center" flex="100"><strong id="countCoalition" ng-class="{'activeRed':vm.coalitionCount < vm.constraints[7].coalitions_count_min || vm.coalitionCount > vm.constraints[7].coalitions_count_max }">Coalitions Count = {{vm.coalitionCount}}</strong> </div>
+
+
+
+        <h2>Percentages Last</h2>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage1" ng-blur="vm.validatepercentage('lpercentage1',0)"  ng-model="vm.data[3].percentages.last[0].entity" >
+            <div ng-messages="userForm.lpercentage1.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}"name="lpercentageValue1" ng-model="vm.data[3].percentages.last[0].value" >
+            <div ng-messages="userForm.lpercentageValue1.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage2" ng-blur="vm.validatepercentage('lpercentage2',1)"  ng-model="vm.data[3].percentages.last[1].entity" >
+            <div ng-messages="userForm.lpercentage2.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue2" ng-model="vm.data[3].percentages.last[1].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue2.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage3" ng-blur="vm.validatepercentage('lpercentage3',2)"  ng-model="vm.data[3].percentages.last[2].entity" >
+            <div ng-messages="userForm.lpercentage3.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue3" ng-model="vm.data[3].percentages.last[2].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue3.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage4" ng-blur="vm.validatepercentage('lpercentage4',3)"  ng-model="vm.data[3].percentages.last[3].entity" >
+            <div ng-messages="userForm.lpercentage4.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue4" ng-model="vm.data[3].percentages.last[3].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue4.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage5" ng-blur="vm.validatepercentage('lpercentage5',4)"  ng-model="vm.data[3].percentages.last[4].entity" >
+            <div ng-messages="userForm.lpercentage5.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue5" ng-model="vm.data[3].percentages.last[4].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue5.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage6" ng-blur="vm.validatepercentage('lpercentage6',5)"  ng-model="vm.data[3].percentages.last[5].entity" >
+            <div ng-messages="userForm.lpercentage6.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue6" ng-model="vm.data[3].percentages.last[5].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue6.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage7" ng-blur="vm.validatepercentage('lpercentage7',6)"  ng-model="vm.data[3].percentages.last[6].entity" >
+            <div ng-messages="userForm.lpercentage7.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue7" ng-model="vm.data[3].percentages.last[6].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue7.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage8" ng-blur="vm.validatepercentage('lpercentage8',7)"  ng-model="vm.data[3].percentages.last[7].entity" >
+            <div ng-messages="userForm.lpercentage8.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue8" ng-model="vm.data[3].percentages.last[7].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue8.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage9" ng-blur="vm.validatepercentage('lpercentage9',8)"  ng-model="vm.data[3].percentages.last[8].entity" >
+            <div ng-messages="userForm.lpercentage9.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue1" ng-model="vm.data[3].percentages.last[8].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue1.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage10" ng-blur="vm.validatepercentage('lpercentage10',9)"  ng-model="vm.data[3].percentages.last[9].entity" >
+            <div ng-messages="userForm.lpercentage10.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue10" ng-model="vm.data[3].percentages.last[9].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue10.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage11" ng-blur="vm.validatepercentage('lpercentage11',10)"  ng-model="vm.data[3].percentages.last[10].entity" >
+            <div ng-messages="userForm.lpercentage11.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue11" ng-model="vm.data[3].percentages.last[10].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue11.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row" flex="60">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>entity</label>
+            <input name="lpercentage12" ng-blur="vm.validatepercentage('lpercentage12',11)"  ng-model="vm.data[3].percentages.last[11].entity" >
+            <div ng-messages="userForm.lpercentage12.$error"  role="alert" multiple>
+              <div ng-message="eNumber" class="my-message">
+                Entity not available
+              </div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>value</label>
+            <input type="number" ng-decimal decimal="{{vm.constraints[8].decimal_count}}" name="lpercentageValue12" ng-model="vm.data[3].percentages.last[11].value" max="{{vm.constraints[5].value_max}}" min="{{vm.constraints[5].value_min}}">
+            <div ng-messages="userForm.lpercentageValue12.$error"  role="alert" multiple >
+              <div ng-message="max" class="my-message">
+                Number is larger than required
+              </div>
+              <div ng-message="min" class="my-message">
+                Number is smaller than required
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row" layout-align="center center" flex="100"><strong id="sumLpValue" ng-class="{'activeRed':(vm.data[3].percentages.last[0].value+vm.data[3].percentages.last[1].value+vm.data[3].percentages.last[2].value+vm.data[3].percentages.last[3].value+vm.data[3].percentages.last[4].value+vm.data[3].percentages.last[5].value+vm.data[3].percentages.last[6].value+vm.data[3].percentages.last[7].value+vm.data[3].percentages.last[8].value+vm.data[3].percentages.last[9].value+vm.data[3].percentages.last[10].value+vm.data[3].percentages.last[11].value) < vm.constraints[8].sum_of_all_values_min || (vm.data[3].percentages.last[0].value+vm.data[3].percentages.last[1].value+vm.data[3].percentages.last[2].value+vm.data[3].percentages.last[3].value+vm.data[3].percentages.last[4].value+vm.data[3].percentages.last[5].value+vm.data[3].percentages.last[6].value+vm.data[3].percentages.last[7].value+vm.data[3].percentages.last[8].value+vm.data[3].percentages.last[9].value+vm.data[3].percentages.last[10].value+vm.data[3].percentages.last[11].value) > vm.constraints[8].sum_of_all_values_max }">Sum of All values = {{vm.data[3].percentages.last[0].value+vm.data[3].percentages.last[1].value+vm.data[3].percentages.last[2].value+vm.data[3].percentages.last[3].value+vm.data[3].percentages.last[4].value+vm.data[3].percentages.last[5].value+vm.data[3].percentages.last[6].value+vm.data[3].percentages.last[7].value+vm.data[3].percentages.last[8].value+vm.data[3].percentages.last[9].value+vm.data[3].percentages.last[10].value+vm.data[3].percentages.last[11].value }}</strong> </div>
+
+
+        <h2>treshold</h2>
+        <h3>display</h3>
+
+        <md-input-container class="md-block"  flex-gt-sm flex="10">
+          <md-switch ng-model="vm.data[2].display" aria-label="Switch 1">
+          </md-switch>
+        </md-input-container>
+
+        <h3>value</h3>
+
+        <md-input-container class="md-block" flex="50" flex-gt-sm>
+          <label>infratest</label>
+          <input type="number" name="threshold" pattern="^[0-9]*(\.[0-9]{0,1})?$" ng-model="vm.data[2].value" max="{{vm.constraints[4].value_max}}" min="{{vm.constraints[4].value_min}}">
+          <div ng-messages="userForm.threshold.$error"  role="alert" multiple>
+            <div ng-message="max" class="my-message">
+              Number is too large
+            </div>
+            <div ng-message="min" class="my-message">
+              Number is too small
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex="100" flex-gt-sm>
+          <md-button style="width: 250px;" layout="row" layout-align="center center" flex="100" class="md-primary md-raised" type="submit" ng-disabled="activeClass">Save</md-button>
+        </md-input-container>
+      </form>
+    </div>
+  </md-content>
+
+</div>

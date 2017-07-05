@@ -1,0 +1,37 @@
+{
+  "name": "ng-decimal",
+  "version": "1.0.6",
+  "authors": [
+    "Bruno Porto <brunotporto@gmail.com>"
+  ],
+  "description": "AngularJS Directive for decimal numbers.",
+  "main": "ng-decimal.js",
+  "keywords": [
+    "directive",
+    "angularjs",
+    "decimal",
+    "number"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.2"
+  },
+  "homepage": "https://github.com/brunoporto/ng-decimal",
+  "_release": "1.0.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.6",
+    "commit": "8e62994f6f08fdebe6bf8c5ecacecf57647e07f4"
+  },
+  "_source": "https://github.com/brunoporto/ng-decimal.git",
+  "_target": "^1.0.6",
+  "_originalSource": "ng-decimal",
+  "_direct": true
+}

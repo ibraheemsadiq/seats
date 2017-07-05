@@ -1,0 +1,103 @@
+{
+  "source": {
+    "long": [
+      "longway"
+    ],
+    "small": [
+      "sdfdfsf",
+      "sdfdfsdfdf"
+    ]
+  },
+  "turnout": {
+    "display": false,
+    "value": 33
+  },
+  "threshold": {
+    "display": false,
+    "value": 33
+  },
+  "data": {
+    "percentages": {
+      "current": [
+        {
+          "entity": "spd_party",
+          "value": 20
+        },
+        {
+          "entity": "linke_party",
+          "value": 20
+        },
+        {
+          "entity": "others",
+          "value": 20
+        },
+        {
+          "entity": "fdp",
+          "value": 20
+        },
+        {
+          "entity": "sdp",
+          "value": 20
+        }
+      ],
+      "last": [
+        {
+          "entity": "others_party",
+          "value": 15
+        },
+        {
+          "entity": "piraten_party",
+          "value": 20
+        },
+        {
+          "entity": "gruene",
+          "value": 20
+        },
+        {
+          "entity": "linke",
+          "value": 20
+        },
+        {
+          "entity": "others",
+          "value": 20
+        }
+      ]
+    },
+    "seats": {
+      "combinations": [
+        [
+          "linke"
+        ],
+        [
+          "linke"
+        ],
+        [
+          "linke"
+        ],
+        [
+          "linke",
+          "others"
+        ],
+        [
+          "linke"
+        ],
+        [
+          "linke"
+        ],
+        [
+          "linke"
+        ]
+      ],
+      "values": [
+        {
+          "entity": "linke_party",
+          "value": 193
+        },
+        {
+          "value": 233,
+          "entity": "others_party"
+        }
+      ]
+    }
+  }
+}

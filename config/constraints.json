@@ -1,0 +1,61 @@
+{
+  "all_entities_must_be_in": [
+    "",
+    "others",
+    "afd",
+    "fdp",
+    "gruene",
+    "linke",
+    "spd",
+    "cducsu",
+    "piraten"
+  ],
+  "source_long": {
+    "min_chars": 5,
+    "max_chars": 42
+  },
+  "source_small_1": {
+    "min_chars": 0,
+    "max_chars": 33
+  },
+  "source_small_2": {
+    "min_chars": 0,
+    "max_chars": 20
+  },
+  "turnout": {
+    "value_min": 0,
+    "value_max": 100,
+    "decimal_count": 2
+  },
+  "percentages": {
+    "value_min": 0,
+    "value_max": 20,
+    "sum_of_all_values_min": 95,
+    "sum_of_all_values_max": 102,
+    "decimal_count": 1
+  },
+  "seats": {
+    "value_min":0,
+    "value_max":1000,
+    "decimal_count": 0,
+    "sum_of_all_values_min": 200,
+    "sum_of_all_values_max": 5000
+  },
+  "coalitions":{
+    "entity_count_per_row_min":1,
+    "entity_count_per_row_max":3,
+    "coalitions_count_min":7,
+    "coalitions_count_max":7
+  },
+  "percentages_last": {
+    "value_min": 0,
+    "value_max": 100,
+    "sum_of_all_values_min": 95,
+    "sum_of_all_values_max": 102,
+    "decimal_count": 1
+  },
+  "treshold":{
+    "value_min":0,
+    "value_max":100
+  }
+}
