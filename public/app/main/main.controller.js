@@ -411,12 +411,14 @@
 
             }
             for(i=0;i< vm.data[3].percentages.current.length;i++) {
-                if((typeof vm.data[3].seats.values[i]) != 'undefined')
+                if(typeof vm.data[3].percentages.current[i]!= 'undefined')
+                if(typeof vm.data[3].percentages.current[i].entity != 'undefined')
                   if (vm.data[3].percentages.current[i].entity.indexOf("_party") == -1)
                     vm.data[3].percentages.current[i].entity += "_party";
             }
             for(i=0;i< vm.data[3].percentages.last.length;i++) {
-                if((typeof vm.data[3].seats.values[i]) != 'undefined')
+                if(typeof vm.data[3].percentages.last[i] != 'undefined')
+                if(typeof vm.data[3].percentages.last[i].entity != 'undefined')
                   if (vm.data[3].percentages.last[i].entity.indexOf("_party") == -1)
                     vm.data[3].percentages.last[i].entity += "_party";
 
