@@ -332,13 +332,18 @@
                 ////console.log(seats);
 
                 for(var i=0;i< vm.data[3].percentages.current.length;i++) {
+
+                    if(typeof vm.data[3].percentages.current[i]!= 'undefined')
+                        if(typeof vm.data[3].percentages.current[i].entity != 'undefined')
                     vm.data[3].percentages.current[i].entity = vm.data[3].percentages.current[i].entity.replace("_party", "");
                     vm.sumPValues+= vm.data[3].percentages.current[i].value;
 
                 }
 
                 for(i=0;i< vm.data[3].percentages.last.length;i++) {
-                    vm.data[3].percentages.last[i].entity = vm.data[3].percentages.last[i].entity.replace("_party", "");
+                    if(typeof vm.data[3].percentages.last[i]!= 'undefined')
+                        if(typeof vm.data[3].percentages.last[i].entity != 'undefined')
+                            vm.data[3].percentages.last[i].entity = vm.data[3].percentages.last[i].entity.replace("_party", "");
                     vm.sumLpValues += vm.data[3].percentages.last[i].value;
                 }
 
